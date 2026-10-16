@@ -112,10 +112,11 @@ p { margin: 0; }
 
 /* ---------- Home hero ---------- */
 .hero { padding: 40px 0 0; }
+.hero__grid > * { min-width: 0; }
 .hero__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 48px; align-items: center; }
 .hero__copy { display: flex; flex-direction: column; gap: 28px; }
-.hero-photo { justify-self: center; width: 100%; max-width: 540px; margin: 0; display: flex; flex-direction: column; gap: 10px; }
-.hero-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 40px 40px 40px 280px; background: var(--mint-t); }
+.hero-photo { justify-self: center; width: 100%; max-width: 540px; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.hero-photo img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 40px 40px 40px 280px; background: var(--mint-t); }
 .hero-photo figcaption { font-size: 13px; color: var(--dusk); text-align: right; }
 .hero-photo figcaption a { color: var(--dusk); }
 
