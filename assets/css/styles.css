@@ -114,13 +114,10 @@ p { margin: 0; }
 .hero { padding: 40px 0 0; }
 .hero__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 48px; align-items: center; }
 .hero__copy { display: flex; flex-direction: column; gap: 28px; }
-.mosaic {
-  justify-self: center; width: 100%; max-width: 540px; aspect-ratio: 4 / 5;
-  border-radius: 40px 40px 40px 280px; overflow: hidden;
-  display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); gap: 6px;
-  background: var(--paper);
-}
-.mosaic img { width: 100%; height: 100%; object-fit: cover; }
+.hero-photo { justify-self: center; width: 100%; max-width: 540px; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.hero-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 40px 40px 40px 280px; background: var(--mint-t); }
+.hero-photo figcaption { font-size: 13px; color: var(--dusk); text-align: right; }
+.hero-photo figcaption a { color: var(--dusk); }
 
 .banner { margin-top: 72px; background: var(--sun-t); border-radius: 999px; padding: 20px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; font-size: 17px; }
 .banner a { font-weight: 700; padding: 10px 0; }
@@ -194,9 +191,9 @@ p { margin: 0; }
 
 .founders { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); gap: 48px 28px; }
 .person { display: flex; flex-direction: column; gap: 16px; }
-.person__photo { position: relative; width: 220px; height: 220px; }
-.person__photo img { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; }
-.person__photo svg { position: absolute; right: -26px; bottom: -10px; width: 120px; height: 120px; mix-blend-mode: multiply; }
+/* a crescent of colour glued to the right edge: a disc of the same size, offset behind the photo */
+.person__photo { width: 238px; height: 220px; }
+.person__photo img { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; box-shadow: 18px 0 0 var(--ring, var(--blue)); }
 .person h3 { font-weight: 500; font-size: 25px; letter-spacing: -0.01em; }
 .role { font-size: 16px; color: var(--dusk); }
 .bio p { font-size: 16px; color: var(--ink-2); }
@@ -205,7 +202,7 @@ p { margin: 0; }
 .committee { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 16px; }
 .member { background: var(--white); border-radius: var(--r-card); padding: 28px; display: flex; flex-direction: column; gap: 16px; }
 .member__head { display: flex; gap: 16px; align-items: center; }
-.member__head img { width: 76px; height: 76px; border-radius: 50%; object-fit: cover; flex: none; box-shadow: 0 0 0 4px var(--ring, var(--blue)); }
+.member__head img { width: 76px; height: 76px; border-radius: 50%; object-fit: cover; flex: none; box-shadow: 8px 0 0 var(--ring, var(--blue)); margin-right: 8px; }
 .member .bio p { font-size: 15px; }
 
 .slim-band { background: var(--mint-t); border-radius: 999px; padding: 32px 48px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }

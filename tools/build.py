@@ -149,8 +149,9 @@ def page(path, title, desc, active, body, join=True):
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:image" content="{SITE}/assets/img/logo/cwsr-seal-paper-1024.png">
-<link rel="icon" type="image/png" href="{P}assets/img/favicon.png">
-<link rel="apple-touch-icon" href="{P}assets/img/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="{P}assets/img/favicon.svg?v=2">
+<link rel="icon" type="image/png" href="{P}assets/img/favicon.png?v=2">
+<link rel="apple-touch-icon" href="{P}assets/img/apple-touch-icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -183,8 +184,7 @@ def card(p):
 
 
 # ---------------------------------------------------------------- home
-people = [f[0] for f in founders] + [c[0] for c in committee]
-mosaic = "".join(f'<img src="{{{{P}}}}assets/img/team/{slug}.jpg" alt="" loading="lazy" width="480" height="480">' for slug in people)
+HERO_PHOTO = "https://images.unsplash.com/photo-1503785640985-f62e3aeee448?fm=jpg&q=80&w=1400&fit=crop"
 
 groups = [
     ("blue", "Research", "People who study it", "Academics and researchers developing the evidence, models and measures behind resilience."),
@@ -211,7 +211,10 @@ home = f'''<section class="hero">
         </div>
         <p class="small">More than 200 members across government, transport, defence, education, NGOs and cybersecurity.</p>
       </div>
-      <div class="mosaic" role="img" aria-label="The Centre's founders and steering committee">{mosaic}</div>
+      <figure class="hero-photo">
+        <img src="{HERO_PHOTO}" alt="Looking up through tall pine trees" width="1400" height="1750">
+        <figcaption>Photo: <a href="https://unsplash.com/@mattartz" rel="noopener">Matt Artz</a> / Unsplash</figcaption>
+      </figure>
     </div>
     <div class="banner reveal">
       <p><strong>Members' Day 2026</strong> took place in London on 15 October, on the theme of human-centred resilience.</p>
@@ -286,7 +289,7 @@ def bio(paras):
     return "".join(f"<p>{p}</p>" for p in paras)
 
 founders_html = "\n".join(f'''      <article class="person reveal">
-        <div class="person__photo"><img src="{{{{P}}}}assets/img/team/{slug}.jpg" alt="Portrait of {name.split(',')[0]}" loading="lazy" width="480" height="480">{moon(ORDER[(i + 1) % 4])}</div>
+        <div class="person__photo"><img src="{{{{P}}}}assets/img/team/{slug}.jpg" alt="Portrait of {name.split(',')[0]}" loading="lazy" width="480" height="480" style="--ring:{STRANDS[ORDER[(i + 1) % 4]][0]}"></div>
         <div><h3>{name}</h3><div class="role">{role}</div></div>
         <div class="bio">{bio(paras)}</div>
         <div>{link}</div>
